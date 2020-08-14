@@ -1,0 +1,41 @@
+
+____________________________________________________________________
+HTML
+<input  type="number" name="wdht" class="wdhtPlace"> Введите длину</input>
+<br>
+<input  type="number" name="hght" class="hghtPlace"> Введите ширину</input>
+<br>
+<button class="btn j-btn-request">Поехали</button>
+<br>
+<img id="urlImg">
+
+____________________________________________________________________
+CSS
+___________________________________________________________________
+JS
+
+const submitBtn = document.querySelector("button");
+const img = document.getElementById("urlImg");
+const wdhtNode = document.querySelector('.wdhtPlace')
+const hghtNode = document.querySelector('.hghtPlace')
+
+
+submitBtn.addEventListener('click', () => {
+ // console.log(wdhtNode.value);
+  //console.log(hghtNode.value);
+  const wdht = wdhtNode.value;
+  const hght = hghtNode.value; if(wdht<100||wdht>300||hght<=100||hght>300){
+    
+    alert('одно из чисел вне диапазона от 100 до 300')
+  }else {
+   let fetchUrl = `https://picsum.photos/150/200`;
+      fetch(fetchUrl)
+        .then((response) => {
+          return response;})
+        .then((data) => {
+          img.setAttribute("src", data.url);
+        })
+    
+  }
+  
+})
