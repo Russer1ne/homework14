@@ -28,7 +28,7 @@ submitBtn.addEventListener('click', () => {
     
     alert('одно из чисел вне диапазона от 100 до 300')
   }else {
-   let fetchUrl = `https://picsum.photos/150/200`;
+   let fetchUrl = `https://picsum.photos/${wdht}/${hght}`;
       fetch(fetchUrl)
         .then((response) => {
           return response;})
@@ -39,3 +39,6 @@ submitBtn.addEventListener('click', () => {
   }
   
 })
+
+___________________________________________________________________
+Задание выполнено с ошибкой: полученное изображение всегда имеет ширину 150 и длину 200, независимо от введенных значений, потому что url запроса задан статично и не учитывает их. Выше исправила код.

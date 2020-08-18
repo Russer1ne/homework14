@@ -26,7 +26,7 @@ const xmlDOM = parser.parseFromString(xmlString, "text/xml");
 
 const studentNode = xmlDOM.querySelectorAll("student");
 
-let result = new Object();     
+let result = [];     
 //console.log(studentNode)
 //console.log(studentNode.length)
 for(let i = 0; i<studentNode.length; i++){
@@ -39,7 +39,7 @@ const profNode = studentNode.item(i).querySelector("prof");
 const langAtr = nameNode.getAttribute('lang');
 
  result[i] = {
-  name: `${firstNode.textContent}` + `${secondNode.textContent}`,
+  name: `${firstNode.textContent} ${secondNode.textContent}`,
   age: ageNode.textContent,
   prof: profNode.textContent,
   lang: langAtr
@@ -49,3 +49,8 @@ const langAtr = nameNode.getAttribute('lang');
 for(let i = 0; i<studentNode.length; i++){
  console.log(result[i]);
 }
+
+// Задание выполнено верно, но есть пара замечаний:
+// 1. result в данном случае было бы логично сделать массивом, а не объектом. В дальнейшем он используется именно как массив, поэтому объявлять его в качестве объекта нет смысла.
+// 2. Имя студентов выводится без пробела. Кроме того, в шаблонной строке (с обратными кавычками - ``) можно не использовать сложение строк с помощью +, а просто написать строку целиком, расположив в нужных местах переменные.
+// Выше всё исправила.
