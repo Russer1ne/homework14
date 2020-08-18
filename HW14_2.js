@@ -16,18 +16,9 @@ const jsonString = `
 `;
 
 const data = JSON.parse(jsonString);
-const people = data.list;
 
-let result = new Object(); 
-
-for (let i = 0; i < people.length;i++){
-result[i] = {
-  name: people[i].name,
-  age: people[i].age,
-  prof: people[i].prof,
-  }
- }
-for (let i=0; i<people.length;i++){
-console.log(result[i]);
+for (let i=0; i<data.list.length;i++){
+console.log(data.list[i]);
 }
 
+// Задание выполнено верно, но вы сильно усложнили код :) можно было обойтись только методом JSON.parse, потому что он уже возвращает готовый Javascript-объект. Исправила выше на более простой вариант.
